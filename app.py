@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import main
 import runPDF
+import countPDF
 
 app = Flask(__name__)
 
@@ -14,13 +15,20 @@ def hello_world():
 def generate():
     if 'pdf' in request.files:
         language = request.form['language']
-        response = runPDF.main(request.files['pdf'], language)
+        page = int(request.form['page'])
+        response = runPDF.main(request.files['pdf'], language, page)
     else:
         data = request.json
         language = data.get('language')
         topic = data.get('topic')
         response = main.main(topic, language)
 
+    return response
+
+
+@app.route('/count-page', methods=['POST'])
+def count():
+    response = countPDF.main(request.files['pdf'])
     return response
 
 

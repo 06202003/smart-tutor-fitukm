@@ -4,7 +4,7 @@ import json
 
 # with open('/hidden.txt') as file:
 # openai.api_key = file.read()
-# openai.api_key = ""
+openai.api_key = ""
 
 
 def get_api_response(prompt: str) -> str | None:
