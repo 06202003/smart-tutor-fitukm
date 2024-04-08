@@ -35,7 +35,8 @@ class QuestionController extends Controller
 
         if ($request->get('path') != "") {
 
-            $data = Http::attach('pdf', file_get_contents('D:\\laravel\\smart-tutor-backend\\storage\\app\\public\\file\\' . $request->get('name')), 'file.pdf', ['Content-Type' => 'pdf'])
+            $Rawdata = Http::timeout(300)
+                ->attach('pdf', file_get_contents('D:\\laravel\\smart-tutor-backend\\storage\\app\\public\\file\\' . $request->get('name')), 'file.pdf', ['Content-Type' => 'pdf'])
                 ->post(
                     'http://91.108.110.58/generate',
                     [
@@ -43,8 +44,12 @@ class QuestionController extends Controller
                         'page' => $request->get('page')
                     ]
                 );
-            $data = json_decode($data, true);
-            return $data['pertanyaan'];
+            $data = json_decode($Rawdata, true);
+            if (isset($data['pertanyaan'])) {
+                return $data['pertanyaan'];
+            } else {
+                return false;
+            }
             // Storage::delete($request->get('path') . $request->get('name'));
         } else if ($request->get('noun') != "") {
 
