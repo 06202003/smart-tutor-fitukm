@@ -104,10 +104,15 @@
                     {
                         data: null,
                         render: function(data, type, full, meta) {
-                            if (data['user_answer'][0]['grade'] == null) {
-                                return '<span>-</span>';
+                            console.log(data);
+                            if (data['user_answer'][0]) {
+                                if (data['user_answer'][0]['grade'] == null) {
+                                    return '<span>-</span>';
+                                } else {
+                                    return data['user_answer'][0]['grade'];
+                                }
                             } else {
-                                return data['user_answer'][0]['grade'];
+                                return "<div class='text-wrap' style='text-align: justify;'>-</div>"
                             }
                         }
 

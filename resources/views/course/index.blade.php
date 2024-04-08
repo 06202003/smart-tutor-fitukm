@@ -179,7 +179,7 @@
                         title: "Actions",
                         render: function(data, type, row) {
                             return '<a href="/topic/' + data['code'] +
-                                '" role="button" class="edit-btn open-edit-dialog" style="text-decoration: none; margin-right: 10px;"><i class="fa-solid fa-circle-info" style="font-size: 15px; color: blue;"></i></a>'
+                                '" role="button" style="text-decoration: none; margin-right: 10px;"><i class="fa-solid fa-circle-info" style="font-size: 15px; color: blue;"></i></a>'
                             @isRole(['admin', 'lecturer', 'assistant']) +
                                 '<a href = "/student/' +
                                 data['code'] +

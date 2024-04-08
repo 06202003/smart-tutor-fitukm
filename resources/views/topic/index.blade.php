@@ -259,7 +259,7 @@
                                 '<a role="button" class="edit-btn open-edit-dialog" style="text-decoration: none; margin-right: 10px;"data-guid="' +
                                 data['guid'] +
                                 '"><i class="fa-solid fa-pen" style="font-size: 15px; color: green;"></i></a>' +
-                                '<a role="button" class="delete-btn " style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#modalDelete" data-guid="' +
+                                '<a role="button" class="delete-btn open-delete-dialog" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#modalDelete" data-guid="' +
                                 data['guid'] +
                                 '"><i class="fa-solid fa-trash" style="font-size: 15px; color: red;"></i></a>';
                             @else
