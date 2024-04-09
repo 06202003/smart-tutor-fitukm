@@ -25,10 +25,7 @@
 </head>
 
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            {{ config('app.name') }}
-        </div>
+    <div class="login-box w-100">
 
         @yield('content')
     </div>
